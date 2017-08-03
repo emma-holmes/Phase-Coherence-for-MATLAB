@@ -18,6 +18,7 @@ function PC = PhaseCoherence(freq, timeSeries, FS)
 % -------------------------------------------------------------------------
 % Emma Holmes
 % Created on 31st July 2017
+% Update 2nd August 2017: prints PC value to console
 
 
 % Get parameters of input data
@@ -25,7 +26,7 @@ nMeasures	= size(timeSeries, 1);
 nSamples 	= size(timeSeries, 2);
 nSecs       = nSamples / FS;
 fprintf('\n\nNumber of measurements = %d', nMeasures);
-fprintf('\n\nNumber of time samples = %d (%.2f seconds)', nSamples, nSecs);
+fprintf('\nNumber of time samples = %d (%.2f seconds)', nSamples, nSecs);
 
 % Calculate FFT for each measurement (spect is freq x measurements)
 spect       = fft(timeSeries'); 
@@ -44,3 +45,6 @@ anglesFoi	= atan2(imag(spectFoi), real(spectFoi));
 % PC is root mean square of the sums of the cosines and sines of the angles
 PC = sqrt((sum(cos(anglesFoi)))^2 + (sum(sin(anglesFoi)))^2) ...
     / length(anglesFoi);
+
+% Print phase coherence value
+fprintf('\n\nPhase coherence value = %.3f\n', PC);
