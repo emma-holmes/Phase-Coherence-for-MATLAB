@@ -31,6 +31,9 @@ PC = PhaseCoherence(freq, timeSeries, FS)
 ```
 The output from the script is a floating-point value between 0 and 1.
 
+### Note for Python users
+There are two versions of the code, which perform the same computations and output: one for MATLAB and one for Python 3. The Python code can be found in a separate repository: [Phase-Coherence-for-Python](https://github.com/emma-holmes/Phase-Coherence-for-Python)
+
 ## License
 
 This project is licensed under the MIT License; see the [LICENSE](LICENSE) file for details
